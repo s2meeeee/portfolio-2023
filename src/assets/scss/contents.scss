@@ -4,8 +4,12 @@ $target: #fff;
 
 .main-section {
   width: 100%;
-  height: 850px;
-  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   @include breakpoint(notebook) {
     height: vw(850, $design-d);
   }
@@ -14,9 +18,13 @@ $target: #fff;
   }
 }
 .wrapper {
-  position: absolute;
-  left: 50%;
-  top: 40%;
+  // position: absolute;
+  // left: 50%;
+  // top: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   transform: translate(-50%, -50%);
   width: 398px;
   height: 70px;
@@ -184,7 +192,7 @@ $target: #fff;
 
 .swiper-slide {
   padding-right: 10px;
-  padding-top: 30px;
+  padding-top: 20px;
   width: 80px;
   display: flex;
   align-items: center;
