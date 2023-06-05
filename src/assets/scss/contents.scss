@@ -392,15 +392,47 @@ $target: #fff;
     flex-direction: row;
     justify-content: center;
     gap: 30px;
+    
     @include breakpoint(mobile) {
       flex-direction: column;
     }
     .about-content {
       width: 100%;
-      height: 700px;
-      background-color: darkgray;
+      height: 600px;
+      .about-content-right,
+      .about-content-left{
+        padding-right: 10%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
     }
   }
+}
+.about-content-left{
+  padding-left: 20%;
+  .about-content-left__profile{
+    width:200px;
+    height:200px;
+    img{
+      width: 100%;
+      height:100%;
+      border-radius: 50%;
+    }
+  }
+}
+
+.about-content-right{
+  .about-right__text p{
+    line-height: 20px;
+    color: #e1d4bb;
+    
+  }
+  .about-right__title{
+    font-size: 25px;
+    line-height: 30px;
+    color:#fff;
+  }  
 }
 
 .skill-section {
