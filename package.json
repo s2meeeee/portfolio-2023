@@ -25,5 +25,13 @@
   "dependencies": {
     "sass": "^1.58.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s2meeeee/portfolio-2023.git"
+  },
+  "bugs": {
+    "url": "https://github.com/s2meeeee/portfolio-2023/issues"
+  },
+  "homepage": "https://github.com/s2meeeee/portfolio-2023#readme",
   "description": ""
 }

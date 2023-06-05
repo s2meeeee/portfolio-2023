@@ -1,6 +1,18 @@
 @use "mixin" as *;
 
 $target: #fff;
+.descktop {
+  display: block;
+  @include breakpoint(mobile) {
+    display: none;
+  }
+}
+.mobile {
+  display: none;
+  @include breakpoint(mobile) {
+    display: block;
+  }
+}
 
 .main-section {
   position: relative;
@@ -23,6 +35,7 @@ $target: #fff;
   @include breakpoint(notebook) {
   }
   @include breakpoint(mobile) {
+    width: 280px;
   }
   .wrapper {
     position: absolute;
@@ -43,6 +56,9 @@ $target: #fff;
       font-size: 65px;
       opacity: 0.6;
       color: #000;
+      @include breakpoint(mobile) {
+        font-size: 45px;
+      }
     }
     .mask {
       position: absolute;
@@ -70,6 +86,9 @@ $target: #fff;
       transform: translateX(0);
       box-sizing: border-box;
       animation: mask 2.5s ease infinite alternate;
+      @include breakpoint(mobile) {
+        font-size: 45px;
+      }
     }
 
     .text {
@@ -85,6 +104,9 @@ $target: #fff;
     .text2 {
       transform: translateX(-340px);
       animation: text2 2.5s ease infinite alternate;
+      @include breakpoint(mobile) {
+        transform: translateX(-222px);
+      }
     }
   }
 }
@@ -110,6 +132,31 @@ $target: #fff;
 @keyframes text2 {
   to {
     transform: translateX(0px);
+  }
+}
+@include breakpoint(mobile) {
+  @keyframes mask {
+    to {
+      transform: translateX(222px);
+    }
+  }
+  
+  @keyframes text {
+    to {
+      transform: translateX(-222px);
+    }
+  }
+  
+  @keyframes mask2 {
+    to {
+      transform: translateX(-222px);
+    }
+  }
+  
+  @keyframes text2 {
+    to {
+      transform: translateX(0px);
+    }
   }
 }
 
@@ -177,136 +224,177 @@ $target: #fff;
     // transform: translateY(40px);
   }
 }
-
 .slide-section {
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
-}
-.swiper {
-  padding: 20px;
-  width: 70%;
-  height: 580px;
-}
+  @include breakpoint(mobile) {
+    height: auto;
+    padding-bottom: vw(100, $design-m);
 
-.swiper-wrapper {
-  position: relative;
-}
-
-.swiper-slide {
-  padding-right: 10px;
-  padding-top: 20px;
-  width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  color: #000;
-  box-shadow: 0px 12px 12px rgba(50, 50, 71, 0.08),
-    0px 16px 24px rgba(50, 50, 71, 0.08);
-}
-
-.swiper-slide:nth-child(1) {
-  background-image: url("https://images.unsplash.com/photo-1600195077909-46e573870d99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8TGVhcm58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60");
-  background-size: cover;
-  // background-position: right;
-  background-repeat: no-repeat;
-}
-
-.swiper-slide:nth-child(2n) {
-  background-image: url("https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fCVFQiU4QiVBQyVFQiVBNiVBQyVFQSVCOCVCMHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60");
-  background-size: cover;
-  background-position: right;
-  background-repeat: no-repeat;
-}
-
-.swiper-slide:nth-child(3n) {
-  background-image: url("https://images.unsplash.com/photo-1548126466-4470dfd3a209?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fGFjaGlldmVtZW50c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.swiper-slide:nth-child(4n) {
-  background-image: url("https://images.unsplash.com/photo-1503551723145-6c040742065b-v2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fFBsYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.swiper-slide:nth-child(5n) {
-  background-image: url("");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.slide-backgroud {
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+  }
+  .swiper-wrapper {
+    position: relative;
+  }
+  .swiper-slide {
+    position: relative;
+    width: 80px;
+    border-radius: 10px;
+    color: #000;
+    box-shadow: 0px 12px 12px rgba(50, 50, 71, 0.08),
+      0px 16px 24px rgba(50, 50, 71, 0.08);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  .slide-backgroud {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.38);
+    }
+  }
+  .swiper-slide--text {
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.38);
-  }
-}
-.swiper-slide--text {
-  width: 100%;
-  height: auto;
-  position: relative;
-  top: 25%;
-  font-size: 50px;
-  margin: 0px 10px;
-  color: #fff;
-  .swiper-slide--text__h2 {
-    padding-bottom: 10px;
-    font-weight: 600;
-    font-size: 150px;
-  }
-}
-.reverse {
-  text-align: right;
-}
-
-.swiper-button-container {
-  position: relative;
-  width: 20%;
-  margin: 0 auto;
-  .swiper-button {
-    width: 60px;
-    height: 60px;
+    height: auto;
     position: absolute;
-    bottom: 10px;
-    margin-top: 25%;
-    border-radius: 50%;
-    color: #e1d4bb;
-    font-size: 20px;
-    border: 3px solid #e1d4bb;
-    background-color: #537188;
+    bottom: 10%;
+    padding: 0px 30px;
+    box-sizing: border-box;
+    color: #fff;
+    .swiper-slide--text__h2 {
+      padding-bottom: 40px;
+      font-weight: 600;
+      font-size: 150px;
+      @include breakpoint(notebook) {
+        @include font-size(D, 150px);
+        padding-bottom: vw(40, $design-d);
+      }
+      @include breakpoint(mobile) {
+        @include font-size(M, 25px);
+        padding-bottom: vw(20, $design-m);
+      }
+    }
+    p {
+      font-size: 50px;
+      @include breakpoint(notebook) {
+        @include font-size(D, 50px);
+      }
+      @include breakpoint(mobile) {
+        @include font-size(M, 25px);
+      }
+    }
   }
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  &:after {
-    display: none;
+  .reverse {
+    text-align: right;
   }
+  &.descktop {
+    .swiper {
+      padding: 20px;
+      width: 70%;
+      height: 580px;
+    }
+    .swiper-slide {
+      padding-right: 10px;
+      padding-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }  
+    .swiper-slide:nth-child(1) {
+      background-image: url("https://images.unsplash.com/photo-1600195077909-46e573870d99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8TGVhcm58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60");
+    }
+    
+    .swiper-slide:nth-child(2n) {
+      background-image: url("https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fCVFQiU4QiVBQyVFQiVBNiVBQyVFQSVCOCVCMHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60");
+    }
+    
+    .swiper-slide:nth-child(3n) {
+      background-image: url("https://images.unsplash.com/photo-1548126466-4470dfd3a209?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fGFjaGlldmVtZW50c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60");
+    }
+    
+    .swiper-slide:nth-child(4n) {
+      background-image: url("https://images.unsplash.com/photo-1503551723145-6c040742065b-v2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fFBsYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60");
+    }
+    
+    .swiper-slide:nth-child(5n) {
+      background-image: url("../images/content/slide-img4.jpg");
+    }
+  
+    .swiper-button-container {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 30px;
+      top:108%;
+      .swiper-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        color: #e1d4bb;
+        font-size: 20px;
+        border: 3px solid #e1d4bb;
+        background-color: #537188;
+        position: static;
+      }
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      &:after {
+        display: none;
+      }
+    }
+    .swiper-button-next.swiper-button-disabled,
+    .swiper-button-prev.swiper-button-disabled {
+      opacity: 1;
+    }
+  }
+  &.mobile {
+    .swiper {
+      width: 90%;
+      height: vw(400, $design-m);
+    }
+    .slide-image {
+      height: 100%;
+      img {
+        height: 100%;
+      }
+    }
+    .slide-text {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      span {
+        @include font-size(M, 60px);
+        color: #fff;
+        font-weight: 700;
+      }
+    }
+  } 
 }
-
-.swiper-button-next.swiper-button-disabled,
-.swiper-button-prev.swiper-button-disabled {
-  opacity: 1;
-}
-
 .about-section {
   width: 100%;
   height: 100vh;
+  overflow: hidden;
+  @include breakpoint(mobile) {
+    height: auto;
+    padding-bottom: vw(100, $design-m);
+  }
   .about-wrap {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 30px;
+    @include breakpoint(mobile) {
+      flex-direction: column;
+    }
     .about-content {
       width: 100%;
       height: 700px;
@@ -319,8 +407,19 @@ $target: #fff;
   display: flex;
   flex-direction: row;
   gap: 30px;
+  align-items: center;
   height: 800px;
-  /* page3 */
+  overflow: hidden;
+  @include breakpoint(notebook) {
+    flex-direction: column;
+    gap: 100px;
+    height: auto;
+  }
+  @include breakpoint(mobile) {
+    flex-direction: column;
+    gap: 50px;
+    height: auto;
+  }
   .text-rolling,
   .page-skill {
     flex: 1;
@@ -331,7 +430,16 @@ $target: #fff;
     background-color: #fcffe4;
     overflow: hidden;
     white-space: nowrap;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    @include breakpoint(notebook) {
+      padding: vw(50, $design-d);
+    }
+    @include breakpoint(mobile) {
+      padding: vw(50, $design-m);
+    }
     .text-rolling-wrap,
     .text-rolling-wrap2 {
       display: flex;
@@ -339,13 +447,19 @@ $target: #fff;
     }
     .title-rolling,
     .sub-title-rolling {
-      color: blue;
+      color: #005db5;
       display: flex;
       flex-direction: row;
     }
     .title-rolling {
       font-size: 300px;
       gap: 30px;
+      @include breakpoint(notebook) {
+        @include font-size(D, 200px);
+      }
+      @include breakpoint(mobile) {
+        @include font-size(M, 80px);
+      }
     }
     .sub-title-rolling {
       font-size: 70px;
@@ -359,7 +473,22 @@ $target: #fff;
     position: relative;
     display: flex;
     color: #fff;
-    padding-right: 100px;
+    
+    @include breakpoint(notebook) {
+      margin:0 auto;
+    }
+    @include breakpoint(mobile) {
+      margin:0 auto;
+    }
+    .accordion {
+      padding-right: 70px;
+      @include breakpoint(notebook) {
+        padding-right: 0;
+      }
+      @include breakpoint(mobile) {
+        padding-right: 0;
+      }
+    }
     .title {
       border: 1px solid #ddd;
       padding: 10px;

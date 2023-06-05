@@ -52,3 +52,13 @@ TweenMax.to($subWrap, 20, {
   ease: Linear.easeNone,
   repeat: -1,
 });
+
+var swiper = new Swiper(".mySwiper3", {
+  slidesPerView: 1,
+  spaceBetween: 30,
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
