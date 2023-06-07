@@ -140,19 +140,19 @@ $target: #fff;
       transform: translateX(222px);
     }
   }
-  
+
   @keyframes text {
     to {
       transform: translateX(-222px);
     }
   }
-  
+
   @keyframes mask2 {
     to {
       transform: translateX(-222px);
     }
   }
-  
+
   @keyframes text2 {
     to {
       transform: translateX(0px);
@@ -231,7 +231,6 @@ $target: #fff;
   @include breakpoint(mobile) {
     height: auto;
     padding-bottom: vw(100, $design-m);
-
   }
   .swiper-wrapper {
     position: relative;
@@ -304,27 +303,27 @@ $target: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-    }  
+    }
     .swiper-slide:nth-child(1) {
       background-image: url("https://images.unsplash.com/photo-1600195077909-46e573870d99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8TGVhcm58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60");
     }
-    
+
     .swiper-slide:nth-child(2n) {
       background-image: url("https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fCVFQiU4QiVBQyVFQiVBNiVBQyVFQSVCOCVCMHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60");
     }
-    
+
     .swiper-slide:nth-child(3n) {
       background-image: url("https://images.unsplash.com/photo-1548126466-4470dfd3a209?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fGFjaGlldmVtZW50c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60");
     }
-    
+
     .swiper-slide:nth-child(4n) {
       background-image: url("https://images.unsplash.com/photo-1503551723145-6c040742065b-v2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fFBsYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60");
     }
-    
+
     .swiper-slide:nth-child(5n) {
       background-image: url("../images/content/slide-img4.jpg");
     }
-  
+
     .swiper-button-container {
       position: absolute;
       left: 50%;
@@ -332,7 +331,7 @@ $target: #fff;
       display: flex;
       flex-direction: row-reverse;
       gap: 30px;
-      top:108%;
+      top: 108%;
       .swiper-button {
         width: 60px;
         height: 60px;
@@ -377,7 +376,7 @@ $target: #fff;
         font-weight: 700;
       }
     }
-  } 
+  }
 }
 .about-section {
   width: 100%;
@@ -392,15 +391,15 @@ $target: #fff;
     flex-direction: row;
     justify-content: center;
     gap: 30px;
-    
+
     @include breakpoint(mobile) {
       flex-direction: column;
     }
     .about-content {
       width: 100%;
-      height: 600px;
+      height: auto;
       .about-content-right,
-      .about-content-left{
+      .about-content-left {
         padding-right: 10%;
         display: flex;
         flex-direction: column;
@@ -409,30 +408,45 @@ $target: #fff;
     }
   }
 }
-.about-content-left{
+.about-content-left {
   padding-left: 20%;
-  .about-content-left__profile{
-    width:200px;
-    height:200px;
-    img{
+  @include breakpoint(mobile) {
+    justify-content: center;
+    align-items: center;
+  }
+  .about-content-left__profile {
+    width: 200px;
+    height: 200px;
+    img {
       width: 100%;
-      height:100%;
+      height: 100%;
       border-radius: 50%;
+    }
+  }
+  .about-content-left__introduction {
+    color: #e1d4bb;
+    @include breakpoint(mobile) {
+      @include font-size(M, 12px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      text-align: center;
+      padding-bottom: 100px;
     }
   }
 }
 
-.about-content-right{
-  .about-right__text p{
+.about-content-right {
+  .about-right__text p {
     line-height: 20px;
     color: #e1d4bb;
-    
   }
-  .about-right__title{
+  .about-right__title {
     font-size: 25px;
     line-height: 30px;
-    color:#fff;
-  }  
+    color: #fff;
+  }
 }
 
 .skill-section {
@@ -505,12 +519,12 @@ $target: #fff;
     position: relative;
     display: flex;
     color: #fff;
-    
+
     @include breakpoint(notebook) {
-      margin:0 auto;
+      margin: 0 auto;
     }
     @include breakpoint(mobile) {
-      margin:0 auto;
+      margin: 0 auto;
     }
     .accordion {
       padding-right: 70px;
