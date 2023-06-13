@@ -415,8 +415,6 @@ $target: #fff;
   .about-content-left__profile {
     width: 200px;
     height: 200px;
-    img {
-      width: 100%;
       height: 100%;
       border-radius: 50%;
       border:3px solid #e1d4bb
@@ -434,7 +432,6 @@ $target: #fff;
       padding-bottom: 100px;
     }
   }
-}
 
 .about-content-right {
   .about-right__text p {
