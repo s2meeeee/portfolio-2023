@@ -272,6 +272,84 @@ $target: #fff;
 }
 .slide-section {
   width: 100%;
+<<<<<<< Updated upstream
+=======
+  height: 100vh;
+  overflow-x: hidden;
+  padding-top: 8%;
+}
+.swiper {
+  padding: 20px;
+  width: 70%;
+  height: 580px;
+}
+
+.swiper-wrapper {
+  align-items: center;
+  position: relative;
+}
+
+.swiper-slide {
+  padding-right: 10px;
+  padding-top: 20px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: #000;
+  box-shadow: 0px 12px 12px rgba(50, 50, 71, 0.08),
+    0px 16px 24px rgba(50, 50, 71, 0.08);
+}
+
+.swiper-slide:nth-child(1) {
+  background-image: url("https://images.unsplash.com/photo-1600195077909-46e573870d99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8TGVhcm58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  // background-position: right;
+  background-repeat: no-repeat;
+}
+
+.swiper-slide:nth-child(2n) {
+  background-image: url("https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fCVFQiU4QiVBQyVFQiVBNiVBQyVFQSVCOCVCMHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.swiper-slide:nth-child(3n) {
+  background-image: url("https://images.unsplash.com/photo-1548126466-4470dfd3a209?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fGFjaGlldmVtZW50c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.swiper-slide:nth-child(4n) {
+  background-image: url("https://images.unsplash.com/photo-1503551723145-6c040742065b-v2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fFBsYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.swiper-slide:nth-child(5n) {
+  background-image: url("");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slide-backgroud {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.38);
+  }
+}
+.swiper-slide--text {
+  width: 100%;
+>>>>>>> Stashed changes
   height: auto;
   overflow-x: hidden;
   padding-bottom: vw(300, $design-d);
@@ -279,6 +357,7 @@ $target: #fff;
     height: auto;
     padding-bottom: vw(100, $design-m);
   }
+<<<<<<< Updated upstream
   .swiper-wrapper {
     position: relative;
   }
@@ -419,6 +498,33 @@ $target: #fff;
         color: #fff;
         font-weight: 700;
       }
+=======
+}
+.reverse {
+  text-align: right;
+}
+
+.swiper-button-container {
+  position: relative;
+  width: 200px;
+  margin: 0 auto;
+  .swiper-button {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: 10px;
+    margin-top: 25%;
+    border-radius: 50%;
+    color: #e1d4bb;
+    font-size: 20px;
+    border: 3px solid #e1d4bb;
+    background-color: #537188;
+    animation: ease-in-out 0.8s;
+    &:hover {
+      background-color: #e1d4bb;
+      color: #537188;
+      animation: ease-in 1s;
+>>>>>>> Stashed changes
     }
   }
 }
