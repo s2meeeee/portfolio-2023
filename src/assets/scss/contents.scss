@@ -272,8 +272,6 @@ $target: #fff;
 }
 .slide-section {
   width: 100%;
-<<<<<<< Updated upstream
-=======
   height: 100vh;
   overflow-x: hidden;
   padding-top: 8%;
@@ -349,7 +347,6 @@ $target: #fff;
 }
 .swiper-slide--text {
   width: 100%;
->>>>>>> Stashed changes
   height: auto;
   overflow-x: hidden;
   padding-bottom: vw(300, $design-d);
@@ -357,7 +354,6 @@ $target: #fff;
     height: auto;
     padding-bottom: vw(100, $design-m);
   }
-<<<<<<< Updated upstream
   .swiper-wrapper {
     position: relative;
   }
@@ -498,7 +494,6 @@ $target: #fff;
         color: #fff;
         font-weight: 700;
       }
-=======
 }
 .reverse {
   text-align: right;
@@ -524,7 +519,6 @@ $target: #fff;
       background-color: #e1d4bb;
       color: #537188;
       animation: ease-in 1s;
->>>>>>> Stashed changes
     }
   }
 }
