@@ -62,3 +62,54 @@ var swiper = new Swiper(".mySwiper3", {
     clickable: true,
   },
 });
+$(function () {
+  // parallax scroll
+  // add on library : "scroll trigger"
+  gsap.registerPlugin(ScrollTrigger);
+
+  let w = window.innerWidth - 60;
+  if (w > 1410) w = 1410;
+  const targetElement = document.querySelectorAll(".scroll-img");
+
+  // Intersection Observer 생성
+  const callback = (entries, observer) => {
+    // console.log("entries", entries);
+    entries.forEach((entry) => {
+      // 요소가 화면에 진입한 경우
+      if (entry.isIntersecting) {
+        // 여기에 실행하고자 하는 자바스크립트 코드 작성
+        console.log("실행");
+        // 스크롤하면 이미지가 왼쪽으로 이동
+        const imgWidth = $(".scroll-img .image-area").width();
+        gsap.to(".scroll-img .bg-box", {
+          scrollTrigger: {
+            trigger: ".scroll-img",
+            start: "bottom bottom",
+            end: "top 100px",
+            scrub: true,
+            markers: false,
+          },
+          x: w - imgWidth,
+          ease: "none",
+          duration: 9,
+        });
+
+        //   unobserve = 구독 취소
+        observer.unobserve(entry.target);
+      }
+      // 요소가 화면에서 사라졌을 때
+      else {
+        // ...
+      }
+    });
+  };
+  const options = {
+    // root: document.querySelector('#scrollArea'),
+    // rootMargin: '0px',
+    // threshold: 1.0
+  };
+  const observer = new IntersectionObserver(callback, options);
+
+  // observe = 구독
+  targetElement.forEach((t) => observer.observe(t));
+});
