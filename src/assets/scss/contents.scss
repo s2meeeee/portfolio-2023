@@ -734,13 +734,13 @@ $target: #fff;
       padding:0 100px 0 100px;
       color:#fff;
       .work_subtit{
+        
+        a{
+          display: block;
+          color:#fff;
           font-size: 40px;
           font-weight: 600;
           padding: 20px 0;
-        a{
-          background-color: salmon;
-          height: 3px;
-          display: block;
         }
         
       }
