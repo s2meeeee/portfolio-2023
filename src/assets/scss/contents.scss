@@ -673,7 +673,7 @@ $target: #fff;
   }
 }
 .image-gallery {
-  background-color: #fff;
+  // background-color: #fff;
   padding-top: 300px;
   .scroll-img {
     overflow: hidden;
@@ -689,6 +689,29 @@ $target: #fff;
       display: flex;
       gap: vw(10, $design-d);
       width: vw(2230, $design-d);
+    }
+
+    .gallery-title {
+      > a {
+        position: relative;
+        display: block;
+        height: 100%;
+        color: #fff;
+        font-size: 60px;
+        font-weight: 700;
+        &::after {
+          content: "gallery";
+          position: absolute;
+          display: block;
+          width: 100%;
+          top: 10px;
+          left: 10px;
+          color: #537188;
+          text-shadow: -1px 0 #fff, 1px 0 #fff, 0 -1px #fff, 0 1px #fff;
+          opacity: 0.3;
+          z-index: -1;
+        }
+      }
     }
   }
 }
@@ -753,6 +776,11 @@ $target: #fff;
         margin-bottom: 10px;
         mark {
           background-color: #e1d4bb;
+        cursor: pointer;
+        background: rgba(0,0,0,0.09);
+        span{
+          display: block;
+          padding: 15px 40px;
         }
       }
       .txt {
@@ -762,6 +790,52 @@ $target: #fff;
     }
   }
 }
+
+span::before, span::after{
+  content:"";
+  width:2px;
+  height:0;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: #fff;
+}
+button:hover::before, button:hover::after{
+  width: 100%;
+}
+button:hover span::before, button:hover span::after{
+  height: 100%;
+}
+/*----- button 1 -----*/
+.btn-1::before, .btn-1::after{
+  transition-delay: 0.2s;
+}
+.btn-1 span::before, .btn-1 span::after{
+  transition-delay: 0s;
+}
+.btn-1::before{
+  right: 0;
+  top: 0;
+}
+.btn-1::after{
+  left: 0;
+  bottom: 0;
+}
+.btn-1 span::before{
+  left: 0;
+  top: 0;
+}
+.btn-1 span::after{
+  right: 0;
+  bottom: 0;
+}
+.btn-1:hover::before, .btn-1:hover::after{
+  transition-delay: 0s;
+}
+.btn-1:hover span::before, .btn-1:hover span::after{
+  transition-delay: 0.2s;
+}
+
+
 
 .portfolio {
   padding-bottom: 300px;
