@@ -11,7 +11,7 @@ const sourcemaps = require("gulp-sourcemaps");
 const babel = require("gulp-babel");
 const minify = require("gulp-minify");
 //server
-const browserSync = require('browser-sync').create();
+const browserSync = require("browser-sync").create();
 
 // 상수에 대문자를 사용하는 것이 일반적인 규칙, 상수는 한 번 정의하면 수정할 수 없는 값으로, 대문자로 정의하면 수정 가능한 일반 변수와 구분
 // PATH코드의 경우 다양한 자산에 대한 경로를 포함하는 상수 개체입니다. 대문자를 사용하면 프로그램 실행 중에 이러한 경로를 수정해서는 안 된다는 점을 다른 개발자에게 분명히 알릴 수 있습니다.
@@ -21,6 +21,7 @@ const PATH = {
     JS: "src/assets/js",
     HTML: "src",
     IMG: "src/assets/images",
+    FONT: "src/assets/font",
   },
 };
 
@@ -34,7 +35,13 @@ gulp.task("clean-style", function () {
 gulp.task("clean-html", function () {
   return gulp.src("dist/*.html", { read: false }).pipe(clean());
 });
-gulp.task("clean", gulp.parallel("clean-style", "clean-js", "clean-html"));
+gulp.task("clean-images", function () {
+  return gulp.src("dist/assets/images", { read: false }).pipe(clean());
+});
+gulp.task("clean-font", function () {
+  return gulp.src("dist/assets/font", { read: false }).pipe(clean());
+});
+gulp.task("clean", gulp.parallel("clean-style", "clean-js", "clean-html", "clean-images", "clean-font"));
 
 // build
 gulp.task("html", () => {
@@ -74,34 +81,33 @@ gulp.task("images", () => {
       .pipe(gulp.dest("./dist/assets/images"));
   });
 });
+gulp.task("font", () => {
+  return gulp.src(PATH.ASSETS.FONT + "/**/*.woff").pipe(gulp.dest("./dist/assets/font"));
+});
 
-gulp.task("build", gulp.parallel("scss", "js", "html", "images"));
-
+gulp.task("build", gulp.parallel("scss", "js", "html", "images", "font"));
 
 // Define the server task
-gulp.task('server', (done) => {
+gulp.task("server", (done) => {
   browserSync.init({
     server: {
-      baseDir: './dist', // Change this to your project's root folder
+      baseDir: "./dist", // Change this to your project's root folder
     },
-    port: 5000
+    port: 5000,
   });
   done();
 });
 
 // Define the watch task
-gulp.task('watch', gulp.series('server', () => {
-  // Watch for changes in SCSS, JS, and HTML files
-  gulp.watch(PATH.ASSETS.STYLE + '/**/*.scss', gulp.series('scss'));
-  gulp.watch(PATH.ASSETS.JS + '/**/*.js', gulp.series('js'));
-  gulp.watch(PATH.ASSETS.HTML + '/*.html', gulp.series('html'));
+gulp.task(
+  "watch",
+  gulp.series("server", () => {
+    // Watch for changes in SCSS, JS, and HTML files
+    gulp.watch(PATH.ASSETS.STYLE + "/**/*.scss", gulp.series("scss"));
+    gulp.watch(PATH.ASSETS.JS + "/**/*.js", gulp.series("js"));
+    gulp.watch(PATH.ASSETS.HTML + "/*.html", gulp.series("html"));
 
-  // Reload the browser when any watched file changes
-  gulp.watch([
-    PATH.ASSETS.STYLE + '/**/*.scss',
-    PATH.ASSETS.JS + '/**/*.js',
-    PATH.ASSETS.HTML + '/*.html',
-  ]).on('change', browserSync.reload);
-}));
-
-
+    // Reload the browser when any watched file changes
+    gulp.watch([PATH.ASSETS.STYLE + "/**/*.scss", PATH.ASSETS.JS + "/**/*.js", PATH.ASSETS.HTML + "/*.html"]).on("change", browserSync.reload);
+  })
+);
