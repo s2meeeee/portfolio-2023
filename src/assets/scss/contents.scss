@@ -739,102 +739,7 @@ $target: #fff;
       }
     }
   }
-  .work-content {
-    display: flex;
-    flex-direction: row;
-    .work-content-left {
-      width: 50%;
-      height: auto;
-      img {
-        width: 100%;
-        margin-bottom: 50px;
-        background-color: salmon;
-      }
-    }
-    .work-content-right {
-      width: 50%;
-      padding: 0 100px 0 100px;
-      color: #fff;
-      .work_subtit {
-        a {
-          display: block;
-          color: #fff;
-          font-size: 40px;
-          font-weight: 600;
-          padding: 20px 0;
-        }
-      }
-      .work_keyword {
-        font-size: 18px;
-        margin-bottom: 10px;
-        mark {
-          background-color: #e1d4bb;
-          cursor: pointer;
-          background: rgba(0, 0, 0, 0.09);
-          span {
-            display: block;
-            padding: 15px 40px;
-          }
-        }
-        .txt {
-          font-weight: 300;
-          line-height: 20px;
-        }
-      }
-    }
-  }
-
-  span::before,
-  span::after {
-    content: "";
-    width: 2px;
-    height: 0;
-    position: absolute;
-    transition: all 0.2s linear;
-    background: #fff;
-  }
-  button:hover::before,
-  button:hover::after {
-    width: 100%;
-  }
-  button:hover span::before,
-  button:hover span::after {
-    height: 100%;
-  }
-  /*----- button 1 -----*/
-  .btn-1::before,
-  .btn-1::after {
-    transition-delay: 0.2s;
-  }
-  .btn-1 span::before,
-  .btn-1 span::after {
-    transition-delay: 0s;
-  }
-  .btn-1::before {
-    right: 0;
-    top: 0;
-  }
-  .btn-1::after {
-    left: 0;
-    bottom: 0;
-  }
-  .btn-1 span::before {
-    left: 0;
-    top: 0;
-  }
-  .btn-1 span::after {
-    right: 0;
-    bottom: 0;
-  }
-  .btn-1:hover::before,
-  .btn-1:hover::after {
-    transition-delay: 0s;
-  }
-  .btn-1:hover span::before,
-  .btn-1:hover span::after {
-    transition-delay: 0.2s;
-  }
-
+  
   .portfolio {
     padding-bottom: 300px;
     background-color: #fff;
@@ -848,6 +753,18 @@ $target: #fff;
       @include breakpoint(mobile) {
         @include font-size(M, 30px);
       }
+    }
+  }
+}
+
+
+.work-content{
+  width:100%;
+  height:auto;
+  .work-content-project{
+    margin-bottom: 50px;
+    .work-content-project__img{
+      width:80%;
     }
   }
 }
